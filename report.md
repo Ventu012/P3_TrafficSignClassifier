@@ -53,61 +53,60 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. In the images below we can see one example of traggic sign for every output class.
 
-![alt text][image1]
+<div align="center">
+    <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/one_image_per_class.png" width="500" />
+</div>
+
+In the image below we can see the number of images per class of the Training Dataset.
+
+<div align="center">
+    <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/Number_of_Images_per_Class.png" width="500" />
+</div>
+
 
 ### Design and Test a Model Architecture
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
-
-Here is an example of a traffic sign image before and after grayscaling.
-
-![alt text][image2]
-
-As a last step, I normalized the image data because ...
-
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
+As a first step, I decided to not convert the images to grayscale but leave them in RGB
+As a secondo step, I decided to normalize the image data, its better to convert image data with zero mean and equal variance. Images come in 0 to 255 pixle value, the normalization step is done by applying the formula: (image_data - X_Mean) / X_Mean, and output -1 to 1 pixel value.
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
+| Layer 				|     Description 								| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Input 				| 32x32x3 RGB image   							| 
+| Convolution 5x5   	| 1x1 stride, same padding, Outputs = 28x28x6 	|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
+| Max pooling			| 2x2 stride,  Outputs = 14x14x6 				|
+| Convolution 5x5   	| 1x1 stride, same padding, Outputs = 10x10x16 	|
+| RELU					|												|
+| Max pooling			| 2x2 stride,  Outputs = 5x5x16 				|
+| Flatten   			| Outputs = 400  								|
+| Fully connected		| Outputs = 120  								|
+| Dropout   			| Keep probability – 0.75   					|
+| Fully connected		| Outputs = 84  								|
+| Dropout   			| Keep probability – 0.75   					|
+| Fully connected		| Outputs = 43  								|
 |						|												|
  
 
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model I decided to use a batch size of 128 and a number of epochs equals to 70.
+Also I decided to use ADAM Optimizer since it gives better accuracy than SGD optimizer.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 0.996
+* validation set accuracy of 0.947 
+* test set accuracy of 0.929
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -126,10 +125,11 @@ If a well known architecture was chosen:
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are ten German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+<div align="center">
+    <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/test_images.png" width="500" />
+</div>
 
 The first image might be difficult to classify because ...
 

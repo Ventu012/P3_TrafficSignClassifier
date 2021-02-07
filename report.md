@@ -105,7 +105,7 @@ Also I decided to use ADAM Optimizer since it gives better accuracy than SGD opt
 
 My final model results were:
 * training set accuracy of 0.996
-* validation set accuracy of 0.947 
+* validation set accuracy of 0.947
 * test set accuracy of 0.929
 
 If an iterative approach was chosen:
@@ -117,8 +117,20 @@ If an iterative approach was chosen:
 
 If a well known architecture was chosen:
 * What architecture was chosen?
+    I chose to use the LeNet-5 architecture used also in the lesson and the following parameters:
+    * Learning Rate = 0.001
+    * Epoch = 70
+    * Batch Size = 128
+
 * Why did you believe it would be relevant to the traffic sign application?
+    We use the same architecture in the lessons to clossify traffic signs so I decided to use the same architecture improving the paramers to obtain better results.
+
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+    Bolow the Training and Validation accuracy during training
+    
+    <div align="center">
+        <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/accuracy_train_validation.png" width="500" />
+    </div>
  
 
 ### Test a Model on New Images
@@ -131,41 +143,72 @@ Here are ten German traffic signs that I found on the web:
     <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/test_images.png" width="500" />
 </div>
 
-The first image might be difficult to classify because ...
-
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+|					Image						|					Prediction 					| 
+|:---------------------------------------------:|:---------------------------------------------:| 
+| Right-of-way at the next intersection  		| Right-of-way at the next intersection  		|
+| Priority road 								| Priority road 								|
+| Stop 											| Stop 											|
+| No entry  									| No entry  									|
+| General caution  								| General caution  								|
+| Bumpy road  									| Road narrows on the right 					|
+| Slippery road  								| Slippery road  								|
+| Road work  									| Road work  									|
+| Traffic signals   							| Slippery road  								|
+| Go straight or left  							| Go straight or left  							|
 
-
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 8 of the 10 traffic signs, which gives an accuracy of 80%. 
+In detail it fail to predict the Bumpy road and the Traffic signals.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 25th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is relatively sure that this is a 'Right-of-way at the next intersection' sign (probability of 1), and the image does contain a 'Right-of-way at the next intersection' sign. 
 
-| Probability         	|     Prediction	        					| 
+The top five soft max probabilities for each image were
+<div align="center">
+    <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/top_softmax_probabilities.png" width="500" />
+</div>
+
+And for each image the probability of the correct prediction was:
+
+| Probability 			|					Prediction 					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| 100% 					| Right-of-way at the next intersection  		|
+| 100% 					| Priority road 								|
+| 100% 					| Stop 											|
+| 100% 					| No entry  									|
+| 100% 					| General caution  								|
+| 0% 					| Bumpy road  									|
+| 100% 					| Slippery road  								|
+| 100% 					| Road work  									|
+| 0% 					| Traffic signals  								|
+| 100% 					| Go straight or left  							|
 
-
-For the second image ... 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
+* Featuremap for the first Convolutional layer which is having output shape of 28x28x6
+<div align="center">
+    <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/conv_layer_1_image.png" width="500" />
+</div>
 
+* Featuremap for the first Max Pool layer which is having output shape of 14x14x6
+<div align="center">
+    <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/max_pool_layer_1_image.png" width="500" />
+</div>
+
+* Featuremap for the second Convolutional layer which is having output shape of 10x10x16
+<div align="center">
+    <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/conv_layer_2_image.png" width="500" />
+</div>
+
+* Featuremap for the first Max Pool layer which is having output shape of 5x5x16
+<div align="center">
+    <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/max_pool_layer_2_image.png" width="500" />
+</div>

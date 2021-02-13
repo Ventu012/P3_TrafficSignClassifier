@@ -42,9 +42,7 @@ You're reading it! and here is a link to my [project code](https://github.com/Ve
 
 #### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
-
+I used the pandas library to calculate summary statistics of the traffic signs data set:
 * The size of training set is 34799
 * The size of the validation set is 4410
 * The size of test set is 12630
@@ -53,13 +51,14 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. In the images below we can see one example of traggic sign for every output class.
+Here is an exploratory visualization of the data set.  
+In the images below we can see one example of traggic sign for every output class.
 
 <div align="center">
     <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/one_image_per_class.png" width="500" />
 </div>
-
-In the image below we can see the number of images per class of the Training Dataset.
+  
+In the image below we can see the number of images per class of the Training Dataset.  
 
 <div align="center">
     <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/Number_of_Images_per_Class.png" width="500" />
@@ -70,7 +69,7 @@ In the image below we can see the number of images per class of the Training Dat
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to not convert the images to grayscale but leave them in RGB
+As a first step, I decided to not convert the images to grayscale but leave them in RGB.  
 As a secondo step, I decided to normalize the image data, its better to convert image data with zero mean and equal variance. Images come in 0 to 255 pixle value, the normalization step is done by applying the formula: (image_data - X_Mean) / X_Mean, and output -1 to 1 pixel value.
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
@@ -98,8 +97,8 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model I decided to use a batch size of 128 and a number of epochs equals to 70.
-Also I decided to use ADAM Optimizer since it gives better accuracy than SGD optimizer.
+To train the model I decided to use a batch size of 128 and a number of epochs equals to 70.  
+Also I decided to use ADAM Optimizer since it gives better accuracy than SGD optimizer.  
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -108,24 +107,17 @@ My final model results were:
 * validation set accuracy of 0.947
 * test set accuracy of 0.929
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
 If a well known architecture was chosen:
-* What architecture was chosen?
+* What architecture was chosen?  
     I chose to use the LeNet-5 architecture used also in the lesson and the following parameters:
     * Learning Rate = 0.001
     * Epoch = 70
     * Batch Size = 128
 
-* Why did you believe it would be relevant to the traffic sign application?
+* Why did you believe it would be relevant to the traffic sign application?  
     We use the same architecture in the lessons to clossify traffic signs so I decided to use the same architecture improving the paramers to obtain better results.
 
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?  
     Bolow the Training and Validation accuracy during training
     
     <div align="center">
@@ -160,12 +152,12 @@ Here are the results of the prediction:
 | Traffic signals   							| Slippery road  								|
 | Go straight or left  							| Go straight or left  							|
 
-The model was able to correctly guess 8 of the 10 traffic signs, which gives an accuracy of 80%. 
-In detail it fail to predict the Bumpy road and the Traffic signals.
+The model was able to correctly guess 8 of the 10 traffic signs, which gives an accuracy of 80%.  
+In detail it fail to predict the Bumpy road and the Traffic signals.  
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 25th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 25th cell of the Ipython notebook.  
 
 For the first image, the model is relatively sure that this is a 'Right-of-way at the next intersection' sign (probability of 1), and the image does contain a 'Right-of-way at the next intersection' sign. 
 
@@ -174,7 +166,7 @@ The top five soft max probabilities for each image were
     <img src="https://github.com/Ventu012/P3_TrafficSignClassifier/blob/main/report_images/top_softmax_probabilities.png" width="500" />
 </div>
 
-And for each image the probability of the correct prediction was:
+For each image the probability of the correct prediction was:
 
 | Probability 			|					Prediction 					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -183,7 +175,7 @@ And for each image the probability of the correct prediction was:
 | 100% 					| Stop 											|
 | 100% 					| No entry  									|
 | 100% 					| General caution  								|
-| 0% 					| Bumpy road  									|
+| 2% 					| Bumpy road  									|
 | 100% 					| Slippery road  								|
 | 100% 					| Road work  									|
 | 0% 					| Traffic signals  								|

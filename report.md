@@ -153,7 +153,7 @@ Here are the results of the prediction:
 | Go straight or left  							| Go straight or left  							|
 
 The model was able to correctly guess 8 of the 10 traffic signs, which gives an accuracy of 80%.  
-In detail it fail to predict the Bumpy road and the Traffic signals.  
+In detail it fails to predict the Bumpy road and the Traffic signals.  
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
